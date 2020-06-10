@@ -25,8 +25,8 @@ import org.hibernate.exception.DataException;
 public class App {
 
 	 public static void main(String[] args) throws IOException {
-
-		 FileReader reader=new FileReader("C:\\Users\\ADHIYAMAN SISUBALAN\\Documents\\workspace-spring-tool-suite-4-4.4.1.RELEASE\\textToTable\\src\\main\\java\\models\\property.properties");  
+		 
+		 FileReader reader=new FileReader("./src/main/java/models/property.properties");  
 		 Properties p=new Properties();  
 	     p.load(reader);
 		 
