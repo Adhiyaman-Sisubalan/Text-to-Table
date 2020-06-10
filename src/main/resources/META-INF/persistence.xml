@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence
+    xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+             http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+ version="2.1">
+    <persistence-unit name="PERSISTENCE">
+        
+        <class>net.codejava.hibernate.DimAgeGroup</class>
+         <class>net.codejava.hibernate.DimArrivalMode</class>
+         <class>net.codejava.hibernate.DimCaseSpecialty</class>
+         <class>net.codejava.hibernate.DimCcoeOrderCancelReason</class>
+         <class>net.codejava.hibernate.DimCcoeOrderPriority</class>
+         <class>net.codejava.hibernate.DimCcoeOrderStatus</class>
+         <class>net.codejava.hibernate.DimCcoeService</class>
+         <class>net.codejava.hibernate.DimCcoeServiceLab</class>
+         <class>net.codejava.hibernate.DimCcoeServiceRad</class>
+         <class>net.codejava.hibernate.DimCcoeUser</class>
+         <class>net.codejava.hibernate.DimClassificationType</class>
+         <class>net.codejava.hibernate.DimClinicalDiagnosi</class>
+         <class>net.codejava.hibernate.DimCountry</class>
+         <class>net.codejava.hibernate.DimCustomer</class>
+         <class>net.codejava.hibernate.DimDiagnosi</class>
+         <class>net.codejava.hibernate.DimDocumentType</class>
+         <class>net.codejava.hibernate.DimDrg</class>
+         <class>net.codejava.hibernate.DimEimrDmdrgmstr</class>
+        
+        <properties>
+            <property name="javax.persistence.jdbc.driver"
+    value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+            <property name="javax.persistence.jdbc.url"
+    value="jdbc:sqlserver://localhost:1433;databaseName=EDW_DATAMART" />
+            <property name="javax.persistence.jdbc.user" value="sa" />
+            <property name="javax.persistence.jdbc.password"
+    value="adhi" />
+   
+        </properties>
+    </persistence-unit>
+</persistence>
