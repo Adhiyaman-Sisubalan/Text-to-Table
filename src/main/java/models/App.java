@@ -185,7 +185,7 @@ public class App {
 		 return result;
 	 }
 	 
-	 
+	 //adhiyaman test
 //	 public static void moveFile(List<String> list) {
 //			
 //			for(int i=0; i< list.size(); i++) {
