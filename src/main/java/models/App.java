@@ -51,6 +51,7 @@ public class App {
 	        EntityManagerFactory emf = Persistence.createEntityManagerFactory("PERSISTENCE");
 		     EntityManager em = emf.createEntityManager();
 		     int rowCnt = 0;
+		     int newRowCnt =0;
 	     for (int i =0; i < list.size(); i++ ) {
 	     
 	    	 String  tableName = (list.get(i));
@@ -58,7 +59,7 @@ public class App {
 			 System.out.println("Table name: "+tableName);
 	    	 name(tableName);
 		     BufferedReader br = null;
-		 
+		     rowCnt= (Integer) em.createNativeQuery("SELECT count(*) FROM "+tableName).getSingleResult();
 
 		
 		 try {
@@ -70,6 +71,7 @@ public class App {
 	       
 			 line = br.readLine();
 			 BufferedWriter bufferedWriter = new BufferedWriter( new FileWriter(p.getProperty("errorFileLocation")+name(tableName)+"Error.txt",true));
+			 //bufferedWriter.write("hi");
 			 try {
 				 String name = "models." + name(tableName);
 				 Class cl = Class.forName(name);
@@ -83,10 +85,12 @@ public class App {
 						Integer columnCount = (Integer)cl.getField("columnCount").get(null);
 						if(row.length != columnCount) {
 							for (int i1=0; i1<row.length; i1++) {
-		                    	bufferedWriter.write(row[i1]);
-		                    	bufferedWriter.write(p.getProperty("delimiter"));
+		                    	bufferedWriter.write(line);
+		                    	//bufferedWriter.write("hi");
+		                    	// bufferedWriter.write(p.getProperty("delimiter"));
 		                    		};
 		                     bufferedWriter.newLine();
+		                    
 						}else {
 						try
 						{
@@ -145,14 +149,14 @@ public class App {
 						}
 						
 						}
-						
+						 
 			     
 				 } 
-				rowCnt= (Integer) em.createNativeQuery("SELECT count(*) FROM "+tableName).getSingleResult();
+				newRowCnt= (Integer) em.createNativeQuery("SELECT count(*) FROM "+tableName).getSingleResult();
 				  
-			     System.out.println("The Number of rows in the table are: "+rowCnt);
+			     System.out.println("The Number of rows in the table are: "+ (newRowCnt -rowCnt));
 				em.getTransaction().commit();
-				
+				bufferedWriter.close();
 			 }catch (NumberFormatException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
